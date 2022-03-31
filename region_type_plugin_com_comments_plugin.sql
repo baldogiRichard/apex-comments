@@ -28,7 +28,7 @@ prompt APPLICATION 49061 - Application Express Hungary
 -- Application Export:
 --   Application:     49061
 --   Name:            Application Express Hungary
---   Date and Time:   18:32 Thursday March 31, 2022
+--   Date and Time:   19:24 Thursday March 31, 2022
 --   Exported By:     BALDOGI.RICHARD@REMEDIOS.HU
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -750,7 +750,7 @@ wwv_flow_api.create_plugin(
 ,p_standard_attributes=>'SOURCE_LOCATION:AJAX_ITEMS_TO_SUBMIT:ESCAPE_OUTPUT:INIT_JAVASCRIPT_CODE:COLUMNS:HEADING_ALIGNMENT:VALUE_ALIGNMENT:VALUE_CSS:VALUE_ATTRIBUTE'
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
-,p_version_identifier=>'21.2'
+,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/baldogiRichard/apex-comments'
 ,p_files_version=>2675
 );
