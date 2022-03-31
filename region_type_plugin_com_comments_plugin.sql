@@ -28,7 +28,7 @@ prompt APPLICATION 49061 - Application Express Hungary
 -- Application Export:
 --   Application:     49061
 --   Name:            Application Express Hungary
---   Date and Time:   17:54 Thursday March 31, 2022
+--   Date and Time:   18:32 Thursday March 31, 2022
 --   Exported By:     BALDOGI.RICHARD@REMEDIOS.HU
 --   Flashback:       0
 --   Export Type:     Component Export
