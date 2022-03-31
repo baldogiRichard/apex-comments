@@ -1,36 +1,38 @@
 {
-    "name" : "APEX Comments",
-    "version" : "21.2.5",
-    "description" : "This plug-in helps to build a comment region to application express developers.",
-    "keywords" : ["comments","region","plugin"],
-    "homepage" : "https://github.com/baldogiRichard/apex-comments",
-    "bugs" : {
-      "url" : "https://github.com/baldogiRichard/apex-comments/issues",
-      "email" : "baldogi.richard@gmail.com"
-    },
-    "license" : "MIT",
-    "commercial" : "No",
-    "author" : {
-      "name" : "Richard Baldogi",
-      "email" : "baldogi.richard@gmail.com",
-      "url" : "https://www.linkedin.com/in/rich%C3%A1rd-b%C3%A1ldogi-627543146/",
-      "twitter": "@O_APEX_Hungary"
-    },
-    "repository" : {
-      "type" : "git",
-      "url" : "https://github.com/baldogiRichard/apex-comments.git"
-    },
-   "oracle" : {
-      "versions" : ["12.1.0.1","12.2.0.1","18.0.0.0","19.0.0.0","21.0.0.0"],
-      "apex" : {
-        "versions" : ["19.1","19.2","20.1","20.2","21.1","21.2"],
-        "plugin" : {
-          "internalName" : "COM.COMMENTS.PLUGIN",
-          "type" : "region",
-          "demo" : "",
-          "previewImage" : "https://raw.githubusercontent.com/baldogiRichard/apex-comments/main/apexcomment.gif"
-        }
-      }
-    }
-  }
-  
+	"name": "APEX Comments",
+	"version": "1.0",
+	"description": "This plug-in helps to build a comment region to application express developers.",
+	"keywords": ["comments","region","plugin"],
+	"homepage": "https://github.com/baldogiRichard/apex-comments.git",
+	"bugs": {
+		"url": "https://github.com/baldogiRichard/apex-comments/issues",
+		"email": "baldogi.richard@gmail.com"
+	},
+	"license": "MIT",
+	"commercial" : "No",
+	"author": {
+		"name": "Richard Baldogi",
+		"email": "baldogi.richard@gmail.com",
+		"url": "https://www.linkedin.com/in/rb-627543146",
+		"twitter": "@O_APEX_Hungary"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/baldogiRichard/apex-comments.git"
+	},
+	"oracle": {
+		"versions": [ "12.1.0.1","19.0.0.0.0"],
+		 "apex":{
+         "versions":[ 
+			"21.1.7",
+			"21.2.0"
+          ],
+			"plugin": {
+				"internalName": "COM.COMMENTS.PLUGIN",
+				"type": "region",
+				"demo": "",
+				"previewImage": "https://raw.githubusercontent.com/baldogiRichard/apex-comments/main/apexcomment.gif"
+			}
+		}
+	}
+}
