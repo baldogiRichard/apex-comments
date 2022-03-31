@@ -28,7 +28,7 @@ prompt APPLICATION 49061 - Application Express Hungary
 -- Application Export:
 --   Application:     49061
 --   Name:            Application Express Hungary
---   Date and Time:   20:52 Wednesday March 30, 2022
+--   Date and Time:   07:33 Thursday March 31, 2022
 --   Exported By:     BALDOGI.RICHARD@REMEDIOS.HU
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -902,12 +902,12 @@ wwv_flow_api.create_plugin_attribute(
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'If pinging is enabled, a query must be specified in order to return a list of users whose can be tagged in the comment section.',
 '',
-'Query format is:',
+'Query example:',
 '',
-'select     id',
-'         , name',
-'         , email',
-'from       table'))
+'select   empno as ID ',
+'       , ename as NAME ',
+'       , ename || ''.'' || job || ''@company.com''  as EMAIL',
+'from emp;'))
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(40290112733906052207)
@@ -1004,22 +1004,49 @@ wwv_flow_api.create_plugin_std_attribute(
 ,p_plugin_id=>wwv_flow_api.id(39826684832934841956)
 ,p_name=>'INIT_JAVASCRIPT_CODE'
 ,p_is_required=>false
+,p_supported_ui_types=>'DESKTOP:JQM_SMARTPHONE'
 ,p_depending_on_has_to_exist=>true
 ,p_examples=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'function(config){',
 '',
 unistr('    config.replyText = ''V\00E1lasz'';'),
+'    config.enableHashtags = true;',
+unistr('    config.editText = ''Szerkeszt\00E9s'';'),
+unistr('    config.deleteText = ''T\00F6rl\00E9s'';'),
+unistr('    config.saveText = ''Ment\00E9s'';'),
+unistr('    config.hideRepliesText = ''Elrejt\00E9s'';'),
+unistr('    config.viewAllRepliesText = ''\00D6sszes v\00E1lasz mutat\00E1sa (__replyCount__)'';'),
+'    config.roundProfilePictures = true;',
+unistr('    config.youText = ''\00C9n'';'),
 '',
 '    return config;',
 '}'))
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'The comment region can have even more customisation options. ',
+'',
 'For all options please check: https://viima.github.io/jquery-comments/'))
 );
 wwv_flow_api.create_plugin_std_attribute(
  p_id=>wwv_flow_api.id(39826685044080841958)
 ,p_plugin_id=>wwv_flow_api.id(39826684832934841956)
 ,p_name=>'SOURCE_LOCATION'
+,p_depending_on_has_to_exist=>true
+,p_examples=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select   ID_COLUMN      as comment_id',
+'       , PARENT_ID      as reply_id',
+'       , CONTENT_STR    as comment_text',
+'       , CREATED        as created_date',
+'       , MODIFIED       as modified_date',
+'       , CREATED_BY     as username',
+'       , case when CREATED_BY = v(''APP_USER'')',
+'              then 1',
+'              else 0',
+'         end as created_by_current_user',
+'       , case when CREATED < sysdate - 2',
+'              then 1',
+'              else 0',
+'         end as new_comment',
+'from APEX_COMMENTS'))
 );
 end;
 /
