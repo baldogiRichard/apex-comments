@@ -33,6 +33,7 @@ COMMENTS.initialize = function(config, data, init) {
         {
             success: function( data )  {
                 success(commentJSON);
+                $('#' + regionId).find('.action.edit').attr('type','button');
             },
             error: function( jqXHR, textStatus, errorThrown ) {
                 apex.message.alert(jqXHR.responseJSON.message);
