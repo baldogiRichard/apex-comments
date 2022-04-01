@@ -27,7 +27,7 @@
         "plugin" : {
           "internalName" : "COM.COMMENTS.PLUGIN",
           "type" : "region",
-          "demo" : "",
+          "demo" : "https://apex.oracle.com/pls/apex/rmzrt/r/apex-comments/home",
           "previewImage" : "https://raw.githubusercontent.com/baldogiRichard/apex-comments/main/apexcomment.gif"
         }
       }
