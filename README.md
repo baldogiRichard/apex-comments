@@ -44,7 +44,18 @@ is_new: true / false
 
 Settings
 
-![image](https://user-images.githubusercontent.com/100072414/163565371-aa2afb00-98d5-45c8-8e03-caaa4f209e77.png)
+![image](https://user-images.githubusercontent.com/100072414/163565918-6c91104e-1aab-49d0-b365-5f33728c65c5.png)
+
+<b>Pinging users</b>
+
+Query example:
+
+select   empno                                  as ID 
+       , ename                                  as USERNAME
+       , ename || ' ' || job                    as NAME 
+       , ename || '.' || job || '@company.com'  as EMAIL
+       , pp_url                                 as PROFILE_PICTURE_URL
+from emp;
 
 #
 
