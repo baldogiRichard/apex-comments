@@ -42,7 +42,9 @@ profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg",
 is_new: true / false
 }
 
+Settings
 
+![image](https://user-images.githubusercontent.com/100072414/163565371-aa2afb00-98d5-45c8-8e03-caaa4f209e77.png)
 
 #
 
