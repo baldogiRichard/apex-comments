@@ -32,14 +32,14 @@ from comments_table
 JSON example:
 
 {
-content: "Welcome!"
-created: "2022-03-31T17:57:34Z"
-created_by_current_user: true / false
-fullname: "RICHARDB DEVELOPER"
-parent: "c1"
-id: "c2"
-is_new: true
-profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg"
+id: "c2",
+parent: "c1",
+content: "Welcome!",
+created: "2022-03-31T17:57:34Z",
+modified: "2022-04-31T17:27:14Z",
+fullname: "RICHARDB DEVELOPER",
+profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg",
+is_new: true / false
 }
 
 
