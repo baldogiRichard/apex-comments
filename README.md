@@ -14,7 +14,7 @@ This plug-in uses the <a href="https://viima.github.io/jquery-comments/" rel="no
 
 The following attributes must be specified in order to fulfill the JSON which will display the comments in the region.
 
-Query example:
+<u>Query example:</u>
 
 select   id_column      as id
        , parent_id      as parent
@@ -29,7 +29,7 @@ select   id_column      as id
          end as is_new
 from comments_table
 
-JSON example:
+<u>JSON example:</u>
 
 {
 id: "c2",
@@ -48,7 +48,7 @@ is_new: true / false
 
 <b>Pinging users</b>
 
-Query example:
+<u>Query example:</u>
 
 select   empno                                  as ID 
        , ename                                  as USERNAME
@@ -68,7 +68,7 @@ Also the query have to be extended with a where clause which filters the comment
 
 ![image](https://user-images.githubusercontent.com/100072414/163567076-6566d083-98d6-4e18-9c6a-38ed2ce81347.png)
 
-Query example:
+<u>Query example:</u>
 
 select   id_column      as id
        , parent_id      as parent
