@@ -70,6 +70,21 @@ Also the query have to be extended with a where clause which filters the comment
 
 Query example:
 
+select   id_column      as id
+       , parent_id      as parent
+       , comment        as content
+       , created_date   as created
+       , modified_date  as modified
+       , name           as fullname
+       , prof_pic_url   as profile_picture_url
+       , case when created_date < sysdate - 2
+              then 1
+              else 0
+         end as is_new
+       , column_filter
+from comments_table
+where column_filter = :P_FILTER_ITEM
+
 #
 
 License MIT
