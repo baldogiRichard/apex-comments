@@ -107,6 +107,8 @@ Example:
     return config;
     }
 
+for more options please check the <a href="https://viima.github.io/jquery-comments/" rel="nofollow">Viima jquery-comments</a> API.
+
 #
 
 License MIT
