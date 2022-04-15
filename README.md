@@ -14,7 +14,23 @@ This plug-in uses the <a href="https://viima.github.io/jquery-comments/" rel="no
 
 The following attributes must be specified in order to fulfill the JSON which will display the comments in the region.
 
-JSON:
+Query example:
+
+select   id_column      as id
+       , parent_id      as parent
+       , comment        as content
+       , created_date   as created
+       , modified_date  as modified
+       , CREATED_BY     as username
+       , prof_pic_url   as profile_picture_url
+       , case when created_date < sysdate - 2
+              then 1
+              else 0
+         end as is_new
+from comments_table
+
+JSON example:
+
 {
 content: "Welcome!"
 created: "2022-03-31T17:57:34Z"
@@ -25,6 +41,8 @@ id: "c2"
 is_new: true
 profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg"
 }
+
+
 
 #
 
