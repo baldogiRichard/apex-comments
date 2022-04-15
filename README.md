@@ -21,7 +21,7 @@ select   id_column      as id
        , comment        as content
        , created_date   as created
        , modified_date  as modified
-       , CREATED_BY     as username
+       , name           as fullname
        , prof_pic_url   as profile_picture_url
        , case when created_date < sysdate - 2
               then 1
