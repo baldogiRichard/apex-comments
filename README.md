@@ -85,6 +85,28 @@ select   id_column      as id
 from comments_table
 where column_filter = :P_FILTER_ITEM
 
+<b>Customizing the comment region</b>
+
+Developers can customize their region by specifying a function in the Javascript Initialization Code section
+
+Example:
+
+    function(config) {
+    config.replyText = 'Válasz';
+    config.enableHashtags = true;
+    config.editText = 'Szerkesztés';
+    config.deleteText = 'Törlés';
+    config.saveText = 'Mentés';
+    config.hideRepliesText = 'Elrejtés';
+    config.viewAllRepliesText = 'Összes válasz mutatása (__replyCount__)';
+    config.roundProfilePictures = true;
+    config.timeFormatter = function(time) {
+    return moment(time).format('MMMM Do YYYY, h:mm:ss a');
+    };
+
+    return config;
+    }
+
 #
 
 License MIT
