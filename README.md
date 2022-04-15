@@ -57,6 +57,8 @@ select   empno                                  as ID
        , pp_url                                 as PROFILE_PICTURE_URL
 from emp;
 
+![image](https://user-images.githubusercontent.com/100072414/163566318-a0c7bf22-f848-4e63-9f5c-b14494f2ed81.png)
+
 #
 
 License MIT
