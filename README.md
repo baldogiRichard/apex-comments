@@ -12,6 +12,20 @@ This plug-in uses the <a href="https://viima.github.io/jquery-comments/" rel="no
 
 # setup
 
-The following attributes must be specified in order to fulfill the JSON which will display the comments in the region
+The following attributes must be specified in order to fulfill the JSON which will display the comments in the region.
+
+JSON:
+{
+content: "Welcome!"
+created: "2022-03-31T17:57:34Z"
+created_by_current_user: true / false
+fullname: "RICHARDB DEVELOPER"
+parent: "c2"
+id: "c2"
+is_new: true
+profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg"
+}
+
+#
 
 License MIT
