@@ -64,6 +64,12 @@ from emp;
 Developers can specify a source id column if for example: The comments should be related to different records in another table
 then they must specify a column which will be filled and an item where the column value must be returned.
 
+Also the query have to be extended with a where clause which filters the comments.
+
+![image](https://user-images.githubusercontent.com/100072414/163567076-6566d083-98d6-4e18-9c6a-38ed2ce81347.png)
+
+Query example:
+
 #
 
 License MIT
