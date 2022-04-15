@@ -59,6 +59,11 @@ from emp;
 
 ![image](https://user-images.githubusercontent.com/100072414/163566318-a0c7bf22-f848-4e63-9f5c-b14494f2ed81.png)
 
+<b>Filter column/item - multiple comments for different records</b>
+
+Developers can specify a source id column if for example: The comments should be related to different records in another table
+then they must specify a column which will be filled and an item where the column value must be returned.
+
 #
 
 License MIT
