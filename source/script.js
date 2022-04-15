@@ -8,6 +8,9 @@ COMMENTS.initialize = function(config, data, init) {
     var regionId = data.regionId;
     var commentsWithPings = COMMENTS.addPingsJSON(data.comments,data.pingingList);
 
+    //filter item value
+    var filterVal = apex.item(data.filterItemName).getValue();
+
     //Initialize commenting region DOM
     config.getComments = function(success, error) {
         success(commentsWithPings);
@@ -28,12 +31,12 @@ COMMENTS.initialize = function(config, data, init) {
                 x04: commentJSON.content,
                 x05: commentJSON.fullname,
                 x06: 'INSCOMMENT',
-                x07: commentJSON.profile_picture_url
+                x07: commentJSON.profile_picture_url,
+                x08: filterVal
         },  
         {
             success: function( data )  {
                 success(commentJSON);
-                $('#' + regionId).find('.action.edit').attr('type','button');
             },
             error: function( jqXHR, textStatus, errorThrown ) {
                 apex.message.alert(jqXHR.responseJSON.message);
@@ -54,7 +57,9 @@ COMMENTS.initialize = function(config, data, init) {
                         x03: commentJSON.parent,
                         x04: commentJSON.content,
                         x05: commentJSON.fullname,
-                        x06: 'DELREPLIES'
+                        x06: 'DELREPLIES',
+                        x07: commentJSON.profile_picture_url,
+                        x08: filterVal
                 },  
                 {
                         success: function( data )  {
@@ -75,7 +80,9 @@ COMMENTS.initialize = function(config, data, init) {
                     x03: commentJSON.parent,
                     x04: commentJSON.content,
                     x05: commentJSON.fullname,
-                    x06: 'DELCOMMENT'
+                    x06: 'DELCOMMENT',
+                    x07: commentJSON.profile_picture_url,
+                    x08: filterVal
             },  
             {
                 success: function( data )  {
@@ -96,7 +103,9 @@ COMMENTS.initialize = function(config, data, init) {
                     x03: commentJSON.parent,
                     x04: commentJSON.content,
                     x05: commentJSON.fullname,
-                    x06: 'UPDREPLIES'
+                    x06: 'UPDREPLIES',
+                    x07: commentJSON.profile_picture_url,
+                    x08: filterVal
             },  
             {
                 success: function( data )  {
@@ -123,7 +132,8 @@ COMMENTS.initialize = function(config, data, init) {
                 x04: commentJSON.content,
                 x05: commentJSON.fullname,
                 x06: 'UPDCOMMENT',
-                x07: commentJSON.profile_picture_url
+                x07: commentJSON.profile_picture_url,
+                x08: filterVal
         },  
         {
             success: function( data )  {
@@ -149,9 +159,6 @@ COMMENTS.initialize = function(config, data, init) {
 
     //initialize the commenting region
     $('#' + regionId).comments(config);
-
-    //Fixing submit button issue : https://github.com/Viima/jquery-comments/issues/149
-    $('#' + regionId).find('.action.edit').attr('type','button');
 };
 
 
