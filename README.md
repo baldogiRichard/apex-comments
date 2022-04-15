@@ -16,22 +16,22 @@ The following attributes must be specified in order to fulfill the JSON which wi
 
 <u>Query example:</u>
 
-select   id_column      as id
-       , parent_id      as parent
-       , comment        as content
-       , created_date   as created
-       , modified_date  as modified
-       , name           as fullname
-       , prof_pic_url   as profile_picture_url
-       , case when created_date < sysdate - 2
-              then 1
-              else 0
-         end as is_new
-from comments_table
+<pre><code>select   id_column      as id
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, parent_id      as parent
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, comment        as content
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, created_date   as created
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, modified_date  as modified
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, name           as fullname
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, prof_pic_url   as profile_picture_url
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, case when created_date &lt; sysdate - 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end as is_new
+from comments_table</code></pre>
 
 <u>JSON example:</u>
 
-{
+<pre><code>{
 id: "c2",
 parent: "c1",
 content: "Welcome!",
@@ -40,7 +40,7 @@ modified: "2022-04-31T17:27:14Z",
 fullname: "RICHARDB DEVELOPER",
 profile_picture_url: "https://www.someprofilepicture.com/profpic1.jpg",
 is_new: true / false
-}
+}</code></pre>
 
 <b>Settings</b>
 
@@ -50,12 +50,12 @@ is_new: true / false
 
 <u>Query example:</u>
 
-select   empno                                  as ID 
-       , ename                                  as USERNAME
-       , ename || ' ' || job                    as NAME 
-       , ename || '.' || job || '@company.com'  as EMAIL
-       , pp_url                                 as PROFILE_PICTURE_URL
-from emp;
+<pre><code>select   empno                                  as ID 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, ename                                  as USERNAME
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, ename || ' ' || job                    as NAME 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, ename || '.' || job || '@company.com'  as EMAIL
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, pp_url                                 as PROFILE_PICTURE_URL
+from emp;</code></pre>
 
 ![image](https://user-images.githubusercontent.com/100072414/163566318-a0c7bf22-f848-4e63-9f5c-b14494f2ed81.png)
 
@@ -70,20 +70,20 @@ Also the query have to be extended with a where clause which filters the comment
 
 <u>Query example:</u>
 
-select   id_column      as id
-       , parent_id      as parent
-       , comment        as content
-       , created_date   as created
-       , modified_date  as modified
-       , name           as fullname
-       , prof_pic_url   as profile_picture_url
-       , case when created_date < sysdate - 2
-              then 1
-              else 0
-         end as is_new
-       , column_filter
+<pre><code>select   id_column      as id
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, parent_id      as parent
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, comment        as content
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, created_date   as created
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, modified_date  as modified
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, name           as fullname
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, prof_pic_url   as profile_picture_url
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, case when created_date &lt; sysdate - 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end as is_new
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;, column_filter
 from comments_table
-where column_filter = :P_FILTER_ITEM
+where column_filter = :P_FILTER_ITEM</code></pre>
 
 <b>Customizing the comment region</b>
 
