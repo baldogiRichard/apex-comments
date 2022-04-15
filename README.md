@@ -12,4 +12,6 @@ This plug-in uses the <a href="https://viima.github.io/jquery-comments/" rel="no
 
 # setup
 
+The following attributes must be specified in order to fulfill the JSON which will display the comments in the region
+
 License MIT
