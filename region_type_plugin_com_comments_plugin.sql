@@ -28,7 +28,7 @@ prompt APPLICATION 49061 - Application Express Hungary
 -- Application Export:
 --   Application:     49061
 --   Name:            Application Express Hungary
---   Date and Time:   10:15 Friday April 15, 2022
+--   Date and Time:   14:35 Wednesday April 20, 2022
 --   Exported By:     BALDOGI.RICHARD@REMEDIOS.HU
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -101,9 +101,6 @@ wwv_flow_imp_shared.create_plugin(
 'return apex_plugin.t_region_render_result',
 'as',
 '    l_result                            apex_plugin.t_region_render_result;',
-'',
-'    --dummy value for apex_json.write',
-'    l_null                              varchar2(1)                := null;',
 '',
 '    --region source',
 '    l_source                            p_region.source%type       := p_region.source;',
@@ -387,9 +384,6 @@ wwv_flow_imp_shared.create_plugin(
 '    -- error handling',
 '    l_apex_error     apex_error.t_error;',
 '',
-'    --dummy value for setting parent id to null when deleting a comment with replies',
-'    l_null           varchar2(1)           := null;',
-'',
 '    --ajax values',
 '    l_action         varchar2(1)           := apex_application.g_x01;',
 '    l_id             varchar2(32000)       := apex_application.g_x02;',
@@ -600,10 +594,9 @@ wwv_flow_imp_shared.create_plugin(
 '',
 '            if l_action = ''U'' then',
 '',
-'                apex_exec.set_value(',
+'                apex_exec.set_null(',
 '                  p_context        => l_context_dml',
 '                , p_column_name    => l_parent_col',
-'                , p_value          => l_null',
 '                );',
 '',
 '            end if;',
@@ -781,7 +774,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/baldogiRichard/apex-comments'
-,p_files_version=>2722
+,p_files_version=>2726
 );
 wwv_flow_imp_shared.create_plugin_attribute(
  p_id=>wwv_flow_imp.id(39854869668926406154)
@@ -839,9 +832,6 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_is_translatable=>false
 ,p_help_text=>'The date when the comment was modified or edited.'
 );
-end;
-/
-begin
 wwv_flow_imp_shared.create_plugin_attribute(
  p_id=>wwv_flow_imp.id(39855769628996427586)
 ,p_plugin_id=>wwv_flow_imp.id(39826684832934841956)
@@ -856,6 +846,9 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_is_translatable=>false
 ,p_help_text=>'The actual text/comment which was written by the user.'
 );
+end;
+/
+begin
 wwv_flow_imp_shared.create_plugin_attribute(
  p_id=>wwv_flow_imp.id(39856377250803445788)
 ,p_plugin_id=>wwv_flow_imp.id(39826684832934841956)
@@ -1606,7 +1599,7 @@ end;
 /
 begin
 wwv_flow_imp_shared.create_plugin_file(
- p_id=>wwv_flow_imp.id(672163594988074270)
+ p_id=>wwv_flow_imp.id(839961714220009717)
 ,p_plugin_id=>wwv_flow_imp.id(39826684832934841956)
 ,p_file_name=>'js/script.min.js'
 ,p_mime_type=>'text/javascript'
