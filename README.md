@@ -12,6 +12,8 @@ This plug-in uses the <a href="https://viima.github.io/jquery-comments/" rel="no
 
 # setup
 
+You can check each setup in my downloadable <a href="https://github.com/baldogiRichard/plug-in-site" rel="nofollow">Sample Application: APEX Plug-ins by Richard Baldogi</a>
+
 The following attributes must be specified in order to fulfill the JSON which will display the comments in the region.
 
 <u>Query example:</u>
