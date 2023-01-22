@@ -2,7 +2,10 @@
 window.COMMENTS = window.COMMENTS || {};
 
 //Initialize plugin
-COMMENTS.initialize = function(config, data, init) {
+COMMENTS.initialize = function(config, vData, init) {
+    
+    //parse data
+    var data = JSON.parse(vData);
 
     //regionid and convert pinginglist to acceptable JSON format for the API
     var regionId = data.regionId;
