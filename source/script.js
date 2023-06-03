@@ -32,11 +32,11 @@ COMMENTS.initialize = function(config, vData, init) {
                 x02: commentJSON.id,
                 x03: commentJSON.parent,
                 x04: commentJSON.content,
-                x05: commentJSON.fullname,
+                x05: apex.item(data.userNameItem).getValue(),
                 x06: 'INSCOMMENT',
-                x07: commentJSON.profile_picture_url,
+                x07: apex.item(data.ProfilePicsItem).getValue(),
                 x08: filterVal
-        },  
+        },
         {
             success: function( data )  {
                 success(commentJSON);
@@ -137,7 +137,7 @@ COMMENTS.initialize = function(config, vData, init) {
                 x06: 'UPDCOMMENT',
                 x07: commentJSON.profile_picture_url,
                 x08: filterVal
-        },  
+        },
         {
             success: function( data )  {
                 success(commentJSON);
