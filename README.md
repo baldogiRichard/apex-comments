@@ -162,6 +162,4 @@ from apex_comments
 </code><pre>
 
 
-#
-
-License MIT
+# License MIT
