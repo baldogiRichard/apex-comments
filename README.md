@@ -120,7 +120,24 @@ Images can be displayed from BLOB columns by using/defining an Application Proce
 
 <u>Application Process example:</u>
 
-
+<pre><code>
+begin
+    for c1 in (select *
+                 from apex_comments_users
+                where empno = :FILE_ID) loop
+        --
+        sys.htp.init;
+        sys.owa_util.mime_header( c1.profile_picture_mimetype, FALSE );
+        sys.htp.p('Content-length: ' || sys.dbms_lob.getlength( c1.profile_picture));
+        sys.htp.p('Content-Disposition: attachment; filename="' || c1.profile_picture_filename || '"' );
+        sys.htp.p('Cache-Control: max-age=3600');  -- tell the browser to cache for one hour, adjust as necessary
+        sys.owa_util.http_header_close;
+        sys.wpg_docload.download_file( c1.profile_picture );
+     
+        apex_application.stop_apex_engine;
+    end loop;
+end
+</code></pre>
 
 <u>Query example:</u>
 
