@@ -141,6 +141,25 @@ end
 
 <u>Query example:</u>
 
+<pre><code>
+select   ID_COLUMN      as comment_id
+       , PARENT_ID      as reply_id
+       , CONTENT_STR    as comment_text
+       , CREATED        as created_date
+       , MODIFIED       as modified_date
+       , CREATED_BY     as username
+       , case when prof_pic_url is null
+                then null
+              else 
+                'f?p=&APP_ID.:&APP_PAGE_ID.:&APP_SESSION.:APPLICATION_PROCESS=GETIMAGE:::FILE_ID:' || PROF_PIC_URL
+         end as prof_pic_url_display
+       , case when CREATED < sysdate - 2
+              then 1
+              else 0
+         end as new_comment
+       , PROF_PIC_URL as prof_pic_url_save
+from apex_comments
+</code><pre>
 
 
 #
