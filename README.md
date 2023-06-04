@@ -94,6 +94,7 @@ Developers can customize their region by specifying a function in the Javascript
 Example:
 
     function(config) {
+    config.profilePictureURL = 'f?p=&APP_ID.:&APP_PAGE_ID.:&APP_SESSION.:APPLICATION_PROCESS=GETIMAGE:::FILE_ID:' + apex.item('P3_PPURL_ID').getValue();
     config.replyText = 'Válasz';
     config.enableHashtags = true;
     config.editText = 'Szerkesztés';
@@ -109,7 +110,21 @@ Example:
     return config;
     }
 
+
+
 For more options please check the <a href="https://viima.github.io/jquery-comments/" rel="nofollow">Viima jquery-comments</a> API.
+
+# Display image from BLOB column
+
+Images can be displayed from BLOB columns by using/defining an Application Process in the Shared Components
+
+<u>Application Process example:</u>
+
+
+
+<u>Query example:</u>
+
+
 
 #
 
