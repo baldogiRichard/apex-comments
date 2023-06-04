@@ -93,23 +93,23 @@ Developers can customize their region by specifying a function in the Javascript
 
 Example:
 
-    function(config) {
-    config.profilePictureURL = 'f?p=&APP_ID.:&APP_PAGE_ID.:&APP_SESSION.:APPLICATION_PROCESS=GETIMAGE:::FILE_ID:' + apex.item('P3_PPURL_ID').getValue();
-    config.replyText = 'Válasz';
-    config.enableHashtags = true;
-    config.editText = 'Szerkesztés';
-    config.deleteText = 'Törlés';
-    config.saveText = 'Mentés';
-    config.hideRepliesText = 'Elrejtés';
-    config.viewAllRepliesText = 'Összes válasz mutatása (__replyCount__)';
-    config.roundProfilePictures = true;
-    config.timeFormatter = function(time) {
-    return moment(time).format('MMMM Do YYYY, h:mm:ss a');
+<pre><code>    function(config) {
+    &nbsp;&nbsp;&nbsp;config.profilePictureURL = 'f?p=&APP_ID.:&APP_PAGE_ID.:&APP_SESSION.:APPLICATION_PROCESS=GETIMAGE:::FILE_ID:' + apex.item('P3_PPURL_ID').getValue();
+    &nbsp;&nbsp;&nbsp;config.replyText = 'Válasz';
+    &nbsp;&nbsp;&nbsp;config.enableHashtags = true;
+    &nbsp;&nbsp;&nbsp;config.editText = 'Szerkesztés';
+    &nbsp;&nbsp;&nbsp;config.deleteText = 'Törlés';
+    &nbsp;&nbsp;&nbsp;config.saveText = 'Mentés';
+    &nbsp;&nbsp;&nbsp;config.hideRepliesText = 'Elrejtés';
+    &nbsp;&nbsp;&nbsp;config.viewAllRepliesText = 'Összes válasz mutatása (__replyCount__)';
+    &nbsp;&nbsp;&nbsp;config.roundProfilePictures = true;
+    &nbsp;&nbsp;&nbsp;config.timeFormatter = function(time) {
+    &nbsp;&nbsp;&nbsp;return moment(time).format('MMMM Do YYYY, h:mm:ss a');
     };
 
-    return config;
+    &nbsp;&nbsp;&nbsp;return config;
     }
-
+</code></pre>
 
 
 For more options please check the <a href="https://viima.github.io/jquery-comments/" rel="nofollow">Viima jquery-comments</a> API.
