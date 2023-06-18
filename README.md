@@ -1,6 +1,6 @@
 # apex-comments
 
-![apexcommentimg](https://user-images.githubusercontent.com/100072414/161127400-6822527c-df3c-46ee-b11d-206db1d3a298.jpg)
+![image](https://github.com/baldogiRichard/apex-comments/assets/100072414/98af2c80-844e-4d84-9dc7-a73253bf06a2)
 
 Oracle Application Express - Comments plugin
 
