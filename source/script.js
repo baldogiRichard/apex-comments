@@ -14,6 +14,18 @@ COMMENTS.initialize = function(config, vData, init) {
     //filter item value
     var filterVal = apex.item(data.filterItemName).getValue();
 
+    //sort comments
+    data.comments = COMMENTS.sortComments(data.comments);
+
+    //set hasChild attribute
+    data.comments = COMMENTS.hasChildren(data.comments);
+
+    //set parentIsRoot attribute
+    data.comments = COMMENTS.parentIsRoot(data.comments);
+
+    //set childIsFirst attribute
+    data.comments = COMMENTS.childIsFirstCheck(data.comments);
+
     //Initialize commenting region DOM
     config.getComments = function(success, error) {
         success(commentsWithPings);
@@ -133,9 +145,9 @@ COMMENTS.initialize = function(config, vData, init) {
                 x02: commentJSON.id,
                 x03: commentJSON.parent,
                 x04: commentJSON.content,
-                x05: commentJSON.fullname,
+                x05: apex.item(data.userNameItem).getValue(),
                 x06: 'UPDCOMMENT',
-                x07: commentJSON.profile_picture_url,
+                x07: apex.item(data.ProfilePicsItem).getValue(),
                 x08: filterVal
         },
         {
@@ -198,4 +210,76 @@ COMMENTS.getPingsInString = function(str) {
 COMMENTS.filterPingsList = function(list,name) {
     var n = new RegExp(name.toUpperCase());
     return list.filter(l => l.fullname.toUpperCase().match(n));
+}
+
+//check if comment have children
+COMMENTS.hasChildren = function (comments) {    
+    var newComments = comments;
+    //comments id
+    for (let i = 0; i < newComments.length; i++) {
+        newComments[i].hasChild = false;
+        //check for same id in parent
+        for (let k = 0; k < comments.length; k++) {
+            if (comments[k]["parent"] === newComments[i].id) {
+                newComments[i].hasChild = true;
+                break;
+            }
+        }
+    }
+    //return updated version
+    return newComments;
+}
+
+//check if parent ID is root ID
+COMMENTS.parentIsRoot = function (comments) {
+    var rootParents = [];    
+    //get root parents
+    for (let i = 0; i < comments.length; i++) {
+        //check if comment is root parent
+        if(typeof(comments[i].parent) === "undefined") {
+            rootParents.push(comments[i].id);
+        }
+    }
+    //check if parent is contained in array
+    for (let i = 0; i < comments.length; i++) {
+        comments[i].parentIsRoot = rootParents.includes(comments[i].parent);
+    }
+    //return updated version
+    return comments;
+}
+
+//convert id to number. slice 'c' from string and convert the rest to number
+COMMENTS.convertIdIntoNumber = function(id) {
+    return parseInt(id.slice(1));  
+}
+
+//check if the current id is the first child of the parent when childs are existing
+COMMENTS.childIsFirstCheck = function (comments) {
+    var extendedComments = comments;
+    
+    //comments id
+    for (let i = 0; i < extendedComments.length; i++) {
+        extendedComments[i].childIsFirst = false;
+        //check if id in parent is first child
+        for (let k = 0; k < comments.length; k++) {
+            if (comments[k].parent) {
+                if (comments[k].parent === extendedComments[i].parent) {
+                    if (comments[k].id != extendedComments[i].id) {
+                        extendedComments[i].childIsFirst = (COMMENTS.convertIdIntoNumber(extendedComments[i].id) < COMMENTS.convertIdIntoNumber(comments[k].id));                       
+                    }
+                }
+            }
+        }
+    }
+
+    //return updated version
+    return extendedComments;
+}
+
+//order json
+COMMENTS.sortComments = function (comments) {
+    comments.sort(function(a, b){
+        return COMMENTS.convertIdIntoNumber(a.id) - COMMENTS.convertIdIntoNumber(b.id);
+    });
+    return comments;
 }
