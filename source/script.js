@@ -3,7 +3,7 @@ window.COMMENTS = window.COMMENTS || {};
 
 //Initialize plugin
 COMMENTS.initialize = function(config, vData, init) {
-    
+
     //parse data
     var data = JSON.parse(vData);
 
@@ -52,6 +52,7 @@ COMMENTS.initialize = function(config, vData, init) {
         {
             success: function( data )  {
                 success(commentJSON);
+                $("[data-id=" + commentJSON.id + "]").attr("data-id",data.success);
             },
             error: function( jqXHR, textStatus, errorThrown ) {
                 apex.message.alert(jqXHR.responseJSON.message);
@@ -168,9 +169,7 @@ COMMENTS.initialize = function(config, vData, init) {
     if (init && typeof init == 'function') init.call(this, config);
 
     //Init region
-    apex.region.create(regionId, {
-        type: 'apex-region-comments'
-    });
+    COMMENTS.createCommentRegion(config,regionId,data.ajaxIdentifier);
 
     //initialize the commenting region
     $('#' + regionId).comments(config);
@@ -282,4 +281,29 @@ COMMENTS.sortComments = function (comments) {
         return COMMENTS.convertIdIntoNumber(a.id) - COMMENTS.convertIdIntoNumber(b.id);
     });
     return comments;
+}
+
+//create region
+COMMENTS.createCommentRegion = function (pConfig,pCommentRegionId,ajaxIdentifier) {
+    apex.region.create( pCommentRegionId, {
+        type: "apex-region-comments",
+        refresh: function() {
+            apex.server.plugin ( ajaxIdentifier, {
+                    x01: 'R'
+            },
+            {
+                success: function( data )  {
+                    var vDataComments = JSON.parse(data.comments);
+
+                    pConfig.getComments = function(success, error) {
+                        success(vDataComments);
+                    };
+
+                },
+                error: function( jqXHR, textStatus, errorThrown ) {
+                    apex.message.alert(jqXHR.responseJSON.message);
+                }
+            })
+        }
+    } );
 }
