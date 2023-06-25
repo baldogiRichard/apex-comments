@@ -161,5 +161,11 @@ select   ID_COLUMN      as comment_id
 from apex_comments
 </code><pre>
 
+#Refresh
 
+The region can be refreshed by defining A "refresh" Dynamic Action.
+
+![image](https://github.com/baldogiRichard/apex-comments/assets/100072414/359c833e-c018-4faf-bf6e-2358d5eadb6f)
+
+    
 # License MIT
