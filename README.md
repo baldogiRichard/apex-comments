@@ -159,13 +159,13 @@ select   ID_COLUMN      as comment_id
          end as new_comment
        , PROF_PIC_URL as prof_pic_url_save
 from apex_comments
-</code><pre>
+</code></pre>
 
-#Refresh
+# Refresh
 
 The region can be refreshed by defining A "refresh" Dynamic Action.
 
-![image](https://github.com/baldogiRichard/apex-comments/assets/100072414/359c833e-c018-4faf-bf6e-2358d5eadb6f)
+![image](https://github.com/baldogiRichard/apex-comments/assets/100072414/0b68e88e-45bd-4198-aee8-ce0471dac0bf)
 
-    
+
 # License MIT
