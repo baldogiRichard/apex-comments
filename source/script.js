@@ -169,7 +169,7 @@ COMMENTS.initialize = function(config, vData, init) {
     if (init && typeof init == 'function') init.call(this, config);
 
     //Init region
-    COMMENTS.createCommentRegion(config,regionId,data.ajaxIdentifier);
+    if(!apex.regions.hasOwnProperty(regionId)) COMMENTS.createCommentRegion(config, regionId, data.ajaxIdentifier, init);
 
     //initialize the commenting region
     $('#' + regionId).comments(config);
@@ -284,21 +284,21 @@ COMMENTS.sortComments = function (comments) {
 }
 
 //create region
-COMMENTS.createCommentRegion = function (pConfig,pCommentRegionId,ajaxIdentifier) {
-    apex.region.create( pCommentRegionId, {
+COMMENTS.createCommentRegion = function (pConfig, pRegionId, pAjaxIdentifier, pInit) {
+    apex.region.create( pRegionId, {
         type: "apex-region-comments",
         refresh: function() {
-            apex.server.plugin ( ajaxIdentifier, {
+            apex.server.plugin ( pAjaxIdentifier, {
                     x01: 'R'
             },
             {
                 success: function( data )  {
                     var vDataComments = JSON.parse(data.comments);
+                    var vDataPingingList = JSON.parse(data.pingingList);
+                    var newData = {comments: vDataComments, pingingList: vDataPingingList, regionId: pRegionId};
+                    var strData = JSON.stringify(newData);
 
-                    pConfig.getComments = function(success, error) {
-                        success(vDataComments);
-                    };
-
+                    COMMENTS.initialize(pConfig, strData, pInit);
                 },
                 error: function( jqXHR, textStatus, errorThrown ) {
                     apex.message.alert(jqXHR.responseJSON.message);
